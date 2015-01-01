@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fireworks</title>
+<head>
+	<script type="text/javascript">
+		var on = 1;
+		function checkFire(){
+			if(on == 1){
+				stopFireWorks();
+				on = 0;
+				document.getElementById("butt").innerHTML = "Start Fireworks"
+			}
+			else{
+				startFireWorks();
+				on = 1;
+				document.getElementById("butt").innerHTML = "Stop Fireworks"
+			}
+		}
+	</script>
+</head>
+<body style="background: black; overflow-x: hidden; overflow-y: hidden;">
+	<audio>
+		<source src="boom.mp3"></source>
+		Your browser doesn't like music. Oh well.
+	</audio>
+	<script type="text/javascript" src ="fireworks.js"></script>
+	<button id="butt" onclick="checkFire();">Stop the fireworks!</button>
+	<button id="butt2" onclick="mute();">Mute Annoying Sound</button>
+	<p id="mobile-message" style="color:white; display:none;">Since you are on Android or mobile, <br> press "Stop the fireworks!" and start again.</p>
+	<script type="text/javascript">
+		var ua = navigator.userAgent.toLowerCase();
+		var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+
+		if(/(iPhone|iPod|iPad)/i.test(navigator.userAgent)) { 
+			document.getElementById("mobile-message").style.display = "block";
+		}
+
+		if(isAndroid)
+			document.getElementById("mobile-message").style.display = "block";
+	</script>
+</body>
+</html>
